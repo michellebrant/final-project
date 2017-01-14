@@ -8,6 +8,9 @@ const session = require('express-session');
 var Client = require('node-rest-client').Client;
 const bodyParser = require("body-parser");
 const bcrypt = require('bcrypt');
+const UAKEY = process.env.UAKEY;
+const UASECRETKEY = process.env.UASECRETKEY;
+
 
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
@@ -59,6 +62,8 @@ app.get('/logout', function(req, res){
 //sign up page
 app.get("/signup", function(req, res){
   res.render('signup.html')
+  console.log(UAKEY)
+  console.log(UASECRETKEY)
 });
 
 app.post('/signup', function(req, res){
