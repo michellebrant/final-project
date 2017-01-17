@@ -18,7 +18,9 @@ class SessionsController < ApplicationController
     @first = @userdata[:info][:first_name]
     @last = @userdata[:info][:last_name]
     @email = @userdata[:extra][:raw_info][:email]
-    @current_time = DateTime.now
+    @current_time = Time.now
+    @current_time_real = @current_time.to_s
+    @currentTimeReal = @current_time_real[0] + @current_time_real[1] + @current_time_real[2] + @current_time_real[3]+ @current_time_real[4] + @current_time_real[5] + @current_time_real[6] + @current_time_real[7]+@current_time_real[8] + @current_time_real[9]
 
     emailCheck = User.find_by(email: @email)
 
