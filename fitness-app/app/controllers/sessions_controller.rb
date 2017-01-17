@@ -17,9 +17,21 @@ class SessionsController < ApplicationController
     @newheight2 = @newheight.floor
     @first = @userdata[:info][:first_name]
     @last = @userdata[:info][:last_name]
+    @email = @userdata[:extra][:raw_info][:email]
+    @current_time = DateTime.now
 
+    emailCheck = User.find_by(email: @email)
 
+    if emailCheck == nil
+      User.create(email: @email,
+                  fname: @first,
+                  lname: @last,
+                  height: @newheight2,
+                  weight: @newweight2,
+                  log_id: Time.now)
   end
+end
+
 
   def destroy
     session[:user_id] = nil
