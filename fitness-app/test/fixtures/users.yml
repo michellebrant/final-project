@@ -2,8 +2,12 @@
 
 one:
   name: MyString
-  email: MyString
+  height: MyString
+  weight: MyString
+  log_id: 1
 
 two:
   name: MyString
-  email: MyString
+  height: MyString
+  weight: MyString
+  log_id: 1
