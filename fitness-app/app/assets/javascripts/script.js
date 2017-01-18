@@ -5,6 +5,10 @@
       getNutritionInfo(search)
     })
 
+     $(".day").click(function(){
+        location.href='/logs/'+this.innerHTML
+    })
+
     getNutritionInfo = function(data) {
     $.ajax({
             url: "https://api.nutritionix.com/v1_1/search/" + search + "?results=0%3A20&cal_min=0&cal_max=50000&appId=5036296a&appKey=1a4056fd3c1dd022eccd7ae2c4427b6d",

@@ -1,5 +1,5 @@
 <h1>Breakfast</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Breakfast')  %>
+<% @subLog =  @logs.where(day: @id2, meal:'Breakfast')  %>
 <% @subLog.each do |log| %>
 <%= log['meal']  %>
 <%= log['calories'] %><br>
@@ -7,7 +7,7 @@
 <% end %>
 
 <h1>Lunch</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Lunch')  %>
+<% @subLog =  @logs.where(day: @id2, meal:'Lunch')  %>
 <% @subLog.each do |log| %>
 <%= log['meal']  %>
 <%= log['calories'] %><br>
@@ -15,7 +15,7 @@
 <% end %>
 
 <h1>Dinner</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Dinner')  %>
+<% @subLog =  @logs.where(day: @id2, meal:'Dinner')  %>
 <% @subLog.each do |log| %>
 <%= log['meal']  %>
 <%= log['calories'] %><br>
@@ -23,7 +23,7 @@
 <% end %>
 
 <h1>Snacks</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Snack')  %>
+<% @subLog =  @logs.where(day: @id2, meal:'Snack')  %>
 <% @subLog.each do |log| %>
 <%= log['meal']  %>
 <%= log['calories'] %><br>
@@ -33,3 +33,5 @@
 <%= month_calendar do |date| %>
   <%= date %>
 <% end %>
+
+<%=@id2  %>
