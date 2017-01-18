@@ -67,7 +67,7 @@
           carbs = data.nf_total_carbohydrate;
           fat = data.nf_total_fat;
 
-          form = $('<form></form')
+          form = $('<form action="/logs" method="POST"></form')
           labelServing = $('<label></label>');
           labelServing.text('Serving Size: ');
           inputServing = $('<input value='+ servingSize +'> '+servingUnit+'</input>')
@@ -78,7 +78,7 @@
 
           labelCalories = $('<label></label>');
           labelCalories.text('Calories: ');
-          inputCalories = $('<input class="calories" value='+ calories + '></input>')
+          inputCalories = $('<input name="calories" class="calories" value='+ calories + '></input>')
           labelCalories.append(inputCalories)
           form.append(labelCalories)
 
@@ -86,7 +86,7 @@
 
           labelCaloriesFromFat = $('<label></label>');
           labelCaloriesFromFat.text('Calories from fat: ');
-          inputCaloriesFromFat = $('<input class="caloriesFromFat" value='+ caloriesFromFat + '></input>')
+          inputCaloriesFromFat = $('<input name="cal_from_fat" class="caloriesFromFat" value='+ caloriesFromFat + '></input>')
           labelCaloriesFromFat.append(inputCaloriesFromFat)
           form.append(labelCaloriesFromFat)
 
@@ -94,7 +94,7 @@
 
           labelProtein = $('<label></label>');
           labelProtein.text('Protein: ');
-          inputProtein = $('<input class="protein" value='+ protein +'> grams</input>')
+          inputProtein = $('<input name="protein" class="protein" value='+ protein +'> grams</input>')
           labelProtein.append(inputProtein)
           form.append(labelProtein)
 
@@ -102,7 +102,7 @@
 
           labelFat = $('<label></label>');
           labelFat.text('Total Fat: ');
-          inputFat = $('<input class="fat" value='+ fat  + '> grams</input>')
+          inputFat = $('<input name="fat" class="fat" value='+ fat  + '> grams</input>')
           labelFat.append(inputFat)
           form.append(labelFat)
 
@@ -110,7 +110,7 @@
 
           labelSaturatedFat = $('<label></label>');
           labelSaturatedFat.text('Saturated Fat: ');
-          inputSaturatedFat = $('<input class="saturatedFat" value='+ saturatedFat +'> grams</input>')
+          inputSaturatedFat = $('<input name="sat_fat" class="saturatedFat" value='+ saturatedFat +'> grams</input>')
           labelSaturatedFat.append(inputSaturatedFat)
           form.append(labelSaturatedFat)
 
@@ -118,7 +118,7 @@
 
           labelSodium = $('<label></label>');
           labelSodium.text('Sodium: ');
-          inputSodium = $('<input class="sodium" value='+ sodium + '> grams</input>')
+          inputSodium = $('<input name="sodium" class="sodium" value='+ sodium + '> grams</input>')
           labelSodium.append(inputSodium)
           form.append(labelSodium)
 
@@ -126,7 +126,7 @@
 
           labelSugar = $('<label></label>');
           labelSugar.text('Sugar: ');
-          inputSugar = $('<input class="sugar" value='+ sugar + '> grams</input>')
+          inputSugar = $('<input name="sugar" class="sugar" value='+ sugar + '> grams</input>')
           labelSugar.append(inputSugar)
           form.append(labelSugar)
 
@@ -134,7 +134,7 @@
 
           labelCarbs = $('<label></label>');
           labelCarbs.text('Carbohydrates: ');
-          inputCarbs = $('<input class="carbs" value='+ carbs + '> grams</input>')
+          inputCarbs = $('<input name="carbs" class="carbs" value='+ carbs + '> grams</input>')
           labelCarbs.append(inputCarbs)
           form.append(labelCarbs)
 
@@ -142,7 +142,7 @@
 
           labelServings = $('<label></label>');
           labelServings.text('Number of Servings: ');
-          inputServing = $('<select></select>');
+          inputServing = $('<select name="servings"></select>');
           inputOption = $('<option>1</option>');
           inputOption2 = $('<option>2</option>');
           inputOption3 = $('<option>3</option>');
@@ -169,7 +169,7 @@
 
           labelMeal = $('<label></label>');
           labelMeal.text('Add to Meal: ');
-          inputMeal = $('<select></select>');
+          inputMeal = $('<select name="meal"></select>');
           inputBreakfast = $('<option>Breakfast</option>');
           inputLunch = $('<option>Lunch</option>');
           inputDinner = $('<option>Dinner</option>');
@@ -180,6 +180,10 @@
           inputMeal.append(inputSnack);
           labelMeal.append(inputMeal);
           form.append(labelMeal);
+
+          form.append('<br>')
+          form.append('<button>Add to Log</button>')
+
 
           $('.' + newClass).append(form);
           $('.' + newClass).append('<button id="clickme">Apply Servings</button>');
