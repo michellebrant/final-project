@@ -24,14 +24,18 @@
         resultDiv = $('<div></div>');
         results = $('<ul></ul>');
         resultItem1 = $('<li></li>');
-        resultItem2 = $('<li class="specific"></li>');
-        name = data.hits[i].fields.brand_name;
+        resultItem2 = $('<li></li>');
+        resultItem3 = $('<li class="specific"></li>');
+        brand_name = data.hits[i].fields.brand_name;
+        item_name = data.hits[i].fields.item_name;
         id = data.hits[i].fields.item_id
-        resultItem1.text(name);
-        resultItem2.text(id);
+        resultItem1.text(item_name);
+        resultItem2.text(brand_name);
+        resultItem3.text(id);
         resultDiv.addClass(id)
         results.append(resultItem1);
         results.append(resultItem2);
+        results.append(resultItem3);
         resultDiv.append(results);
         $('body').append(resultDiv)
 
@@ -48,6 +52,7 @@
         })
         .done(function(data) {
           appendNutrition(data)
+          console.log(data.brand_name)
           $('.specific').removeClass('specific')
         })
       })
@@ -63,11 +68,40 @@
           servingSize = data.nf_serving_size_qty;
           servingUnit = data.nf_serving_size_unit;
           sodium = data.nf_sodium;
+          name = data.brand_name;
+          itemName = data.item_name;
           sugar = data.nf_sugars;
           carbs = data.nf_total_carbohydrate;
           fat = data.nf_total_fat;
+          date = $('.date').text();
 
           form = $('<form action="/logs" method="POST"></form')
+
+          labelDate = $('<label></label>');
+          labelDate.text('Date: ');
+          inputDate = $("<input name=\"date\" value=\""+ date +"\"></input>")
+          labelDate.append(inputDate)
+          form.append(labelDate)
+
+
+          form.append('<br>')
+          labelBrandName = $('<label></label>');
+          labelBrandName.text('Brand: ');
+          inputBrandName = $("<input name=\"brand\" value=\""+ name +"\"></input>")
+          labelBrandName.append(inputBrandName)
+          form.append(labelBrandName)
+
+
+          form.append('<br>')
+
+          labelItemName = $('<label></label>');
+          labelItemName.text('Item: ');
+          inputItemName = $("<input name=\"name\" value=\""+ itemName +"\"></input>")
+          labelItemName.append(inputItemName)
+          form.append(labelItemName)
+
+          form.append('<br>')
+
           labelServing = $('<label></label>');
           labelServing.text('Serving Size: ');
           inputServing = $('<input value='+ servingSize +'> '+servingUnit+'</input>')
