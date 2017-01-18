@@ -1,7 +1,9 @@
 class LogsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
 
 
 def create
+
   Log.create(calories: params[:calories],
                 cal_from_fat: params[:cal_from_fat],
                 protein: params[:protein],
@@ -14,8 +16,7 @@ def create
                 meal: params[:meal])
       redirect_to "/logs"
 
-end
 
 end
-
+end
 

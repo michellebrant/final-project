@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   def new
   end
-
 
   def create
     auth_hash = request.env['omniauth.auth']
@@ -22,25 +22,45 @@ class SessionsController < ApplicationController
     @current_time_real = @current_time.to_s
     @currentTimeReal = @current_time_real[0] + @current_time_real[1] + @current_time_real[2] + @current_time_real[3]+ @current_time_real[4] + @current_time_real[5] + @current_time_real[6] + @current_time_real[7]+@current_time_real[8] + @current_time_real[9]
 
-    emailCheck = User.find_by(email: @email)
+    # emailCheck = User.find_by(email: @email)
+    # @id = emailCheck[:id]
 
-    if emailCheck == nil
-      User.create(email: @email,
+
+    # if emailCheck == nil
+
+
+
+
+
+  if session[:user_id]
+    # Means our user is signed in. Add the authorization to the user
+    User.find(session[:user_id]).add_provider(auth_hash)
+
+
+  else
+    # Log him in or sign him up
+    auth = Authorization.find_or_create(auth_hash)
+
+    # Create the session
+    session[:user_id] = auth.id
+
+        user = User.create(id: auth.id,
+                  email: @email,
                   fname: @first,
                   lname: @last,
                   height: @newheight2,
                   weight: @newweight2,
                   log_id: Time.now)
-  end
+      end
+
+
+  # def destroy
+  #   session[:user_id] = nil
+  #   render :text => "You've logged out!"
+  # end
+
+  # def failure
+  #   render :text => "Sorry, but you didn't allow access to our app!"
+  # end
 end
-
-
-  def destroy
-    session[:user_id] = nil
-    render :text => "You've logged out!"
-  end
-
-  def failure
-    render :text => "Sorry, but you didn't allow access to our app!"
-  end
 end
