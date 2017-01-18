@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyString
+  food_name: MyString
+  calories: 1
+  cal_from_fat: 1
+  protein: 1
+  fat: 1
+  sat_fat: 1
+  sodium: 1
+  sugar: 1
+  carbs: 1
+  servings: 1
+  meal: MyString
+
+two:
+  day: MyString
+  food_name: MyString
+  calories: 1
+  cal_from_fat: 1
+  protein: 1
+  fat: 1
+  sat_fat: 1
+  sodium: 1
+  sugar: 1
+  carbs: 1
+  servings: 1
+  meal: MyString
