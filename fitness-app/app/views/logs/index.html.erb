@@ -1,3 +1,32 @@
-<%= csrf_meta_tags %>
-<h1>you did it!</h1>
-<%=@session  %>
+<h1>Breakfast</h1>
+<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Breakfast')  %>
+<% @subLog.each do |log| %>
+<%= log['meal']  %>
+<%= log['calories'] %><br>
+<%= log['day'] %><br>
+<% end %>
+
+<h1>Lunch</h1>
+<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Lunch')  %>
+<% @subLog.each do |log| %>
+<%= log['meal']  %>
+<%= log['calories'] %><br>
+<%= log['day'] %><br>
+<% end %>
+
+<h1>Dinner</h1>
+<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Dinner')  %>
+<% @subLog.each do |log| %>
+<%= log['meal']  %>
+<%= log['calories'] %><br>
+<%= log['day'] %><br>
+<% end %>
+
+<h1>Snacks</h1>
+<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Snack')  %>
+<% @subLog.each do |log| %>
+<%= log['meal']  %>
+<%= log['calories'] %><br>
+<%= log['day'] %><br>
+<% end %>
+
