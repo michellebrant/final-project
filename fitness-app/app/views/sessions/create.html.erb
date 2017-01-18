@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Fitness</title>
-      <%= javascript_include_tag "script" %>
 </head>
 <body>
   <h1> Welcome <%=@first  %> <%=@last  %>!</h1>
@@ -12,8 +11,7 @@
     <%= @email %>
    <h1> Today is <%=@currentTimeReal  %> </h1>
      Would you like to log a meal?
-  <input class="search">
+  <input class="search"><button id="searchit">search!</button>
 </body>
 </html>
-
 
