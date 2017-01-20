@@ -3,7 +3,21 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def edit
+     session[:user_id]
+    @user = User.find(session[:user_id])
+  end
+
+  def update
+    User.find(session[:user_id]).update(user_params)
+    redirect_to "/home"
+  end
+
+  def user_params
+  params.require(:user).permit(:fname, :lname, :weight, :height, :goal, :email)
+  end
   def show
+
 
     session[:user_id]
     @user = User.where(id: session[:user_id])
