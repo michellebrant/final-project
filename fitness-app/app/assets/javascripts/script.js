@@ -342,9 +342,8 @@ function scaleBannerVideoSize(element){
     });
 }
 
-
-
-
-
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
 
 

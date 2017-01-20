@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure', :via => [:get], :as => 'sessions_failure'
   get '/logout', :to => 'sessions#destroy'
   resources :logs
+  get '/home', :to => 'sessions#show', :as => :home
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

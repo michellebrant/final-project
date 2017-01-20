@@ -3,6 +3,81 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def show
+
+    session[:user_id]
+    @user = User.where(id:1)
+    @email = @user[0][:email]
+    @first = @user[0][:fname]
+    @last = @user[0][:lname]
+    @height = @user[0][:height]
+    @weight = @user[0][:weight]
+
+    @current_time = Time.now
+    @current_time_real = @current_time.to_s
+    @currentTimeReal = @current_time_real[0] + @current_time_real[1] + @current_time_real[2] + @current_time_real[3]+ @current_time_real[4] + @current_time_real[5] + @current_time_real[6] + @current_time_real[7]+@current_time_real[8] + @current_time_real[9]
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '01')
+      @currentTimeReal2 = 'January' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '02')
+      @currentTimeReal2 = 'February' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '03')
+      @currentTimeReal2 = 'March' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '04')
+      @currentTimeReal2 = 'April' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '05')
+      @currentTimeReal2 = 'May' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '06')
+      @currentTimeReal2 = 'June' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '07')
+      @currentTimeReal2 = 'July' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '08')
+      @currentTimeReal2 = 'August' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '09')
+      @currentTimeReal2 = 'September' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '10')
+      @currentTimeReal2 = 'October' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '11')
+      @currentTimeReal2 = 'November' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+    if (@currentTimeReal[5] + @currentTimeReal[6] === '12')
+      @currentTimeReal2 = 'December' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
+
+    end
+
+
+  end
   def create
     auth_hash = request.env['omniauth.auth']
 
@@ -80,20 +155,12 @@ class SessionsController < ApplicationController
       @currentTimeReal2 = 'December' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
 
     end
-    # emailCheck = User.find_by(email: @email)
-    # @id = emailCheck[:id]
 
-
-    # if emailCheck == nil
-
-
-
-
-
-  if session[:user_id]
+  # @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
+  # if @authorization
+  #    render :text => 'success'
+ if session[:user_id]
     # Means our user is signed in. Add the authorization to the user
-    User.find(session[:user_id]).add_provider(auth_hash)
-
 
   else
     # Log him in or sign him up
@@ -108,17 +175,15 @@ class SessionsController < ApplicationController
                   lname: @last,
                   height: @newheight2,
                   weight: @newweight2,
+                  goal: @goal,
                   log_id: Time.now)
       end
 
 
-  # def destroy
-  #   session[:user_id] = nil
-  #   render :text => "You've logged out!"
-  # end
+  def destroy
+    session[:user_id] = nil
+    render :text => "You've logged out!"
+  end
 
-  # def failure
-  #   render :text => "Sorry, but you didn't allow access to our app!"
-  # end
 end
 end
