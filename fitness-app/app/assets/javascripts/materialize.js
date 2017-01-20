@@ -15,6 +15,18 @@ if (typeof(jQuery) === 'undefined') {
   }
 }
 ;/*
+
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
  * Uses the built in easing capabilities added In jQuery 1.1
@@ -352,6 +364,7 @@ Materialize.elementOrParentIsFixed = function(element) {
     });
     return isFixed;
 };
+
 
 // Velocity has conflicts when loaded with jQuery, this will check for it
 // First, check if in noConflict mode

@@ -1,13 +1,27 @@
-<%= link_to "Connect With underarmour", "/auth/underarmour" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
 <div class="homepage-hero-module">
     <div class="video-container">
-        <div class="filter"></div>
        <%= video_tag("Fruity.mp4", class:"fillWidth", :autoplay => true, :loop => true)  %>
-        <div class="poster hidden">
-        </div>
     </div>
+<div class="container">
+  <div class="row">
+    <div class="col s2">
+    </div>
+  <div class="col s8">
+    <%= link_to image_tag("button.png"), '/auth/underarmour', :target => "_blank" %>
+  </div>
+    <div class="col s2">
+    </div>
+  </div>
 </div>
 
+</body>
+</html>
 
 
 

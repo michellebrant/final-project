@@ -2,21 +2,37 @@
 <html>
 <head>
   <title>Fitness</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-<%= csrf_meta_tags %>
-
-  <h1> Welcome <%=@first  %> <%=@last  %>!</h1>
-
-<%=@id  %>
-
-    Height: <%=@newheight2  %> feet
-    Weight: <%=@newweight2  %>
-    Goal: <%=@goal  %>
+   <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div class="row">
+  <div class="col col s12 m4 l3">
+    <h3> Welcome <%=@first  %> <%=@last  %>!</h3>
+    Height: <%=@newheight2  %> feet <br>
+    Weight: <%=@newweight2  %> <br>
+    Goal: <%=@goal  %> <br>
+    Edit
     <%= @email %>
-   <h1> Today is </h1><h1 class='date'><%=@currentTimeReal  %> </h1>
-     Would you like to log a meal?
-  <input class="search"><button id="searchit">search!</button>
+
+  </div>
+  <div class="col s12 m8 l9">
+    <h2> Today is <%=@currentTimeReal2  %> </h2>
+      <h2>Would you like to log a meal?</h2>
+      <br>
+        <h5> Simply search for the food item you are looking to add, adjust servings, and add to your meal!</h5>
+        <input class="search"><button id="searchit">Search!</button><button id="clearit">Clear results!</button>
+    </div>
 </body>
 </html>
 
