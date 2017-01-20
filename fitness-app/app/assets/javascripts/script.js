@@ -28,8 +28,9 @@
     }
 
     appendResults = function(data) {
+      containerDiv = $('<div class="food container"></div>')
       for(i=0;i<20;i++) {
-        containerDiv = $('<div class="food container"></div>')
+        if (i % 2 === 0)
         rowDiv = $('<div class="row"></div>')
         resultDiv = $('<div class="col s12 offset-s2"></div>');
         results = $('<ul></ul>');
@@ -87,12 +88,12 @@
           fat = data.nf_total_fat;
           date = $('.date').text();
 
-          containerDiv = $('<div class="container"></div>')
+          containerDiv = $('<div class="BIG container"></div>')
           rowDiv = $('<div class="row"></div>')
 
           form = $('<form action="/logs" method="POST"></form')
 
-          columnDiv1 = $('<div class="col sm 6"></div>')
+          columnDiv1 = $('<div class="FORMITEMS"></div>')
           labelDate = $('<label></label>');
           labelDate.text('Date: ');
           inputDate = $("<input name=\"day\" value=\""+ date +"\"></input>")
@@ -101,18 +102,15 @@
           form.append(columnDiv1)
 
 
-          columnDiv2 = $('<div class="date2 col sm 6"></div>')
+          columnDiv2 = $('<div class="FORMITEMS"></div>')
           labelBrandName = $('<label></label>');
           labelBrandName.text('Brand: ');
           inputBrandName = $("<input name=\"brand\" value=\""+ name +"\"></input>")
           labelBrandName.append(inputBrandName)
-          columnDiv2.append(labelDate)
+          columnDiv2.append(labelBrandName)
           form.append(columnDiv2)
 
-
-
-
-          columnDiv3 = $('<div class="col sm 6"></div>')
+          columnDiv3 = $('<div class="FORMITEMS"></div>')
           labelItemName = $('<label></label>');
           labelItemName.text('Item: ');
           inputItemName = $("<input name=\"name\" value=\""+ itemName +"\"></input>")
@@ -120,14 +118,7 @@
           columnDiv3.append(labelItemName)
           form.append(columnDiv3)
 
-
-
-
-
-
-
-
-          columnDiv5 = $('<div class="col sm 6"></div>')
+          columnDiv5 = $('<div class="FORMITEMS"></div>')
           labelCalories = $('<label></label>');
           labelCalories.text('Calories: ');
           inputCalories = $('<input name="calories" class="calories" value='+ calories + '></input>')
@@ -137,7 +128,7 @@
 
 
 
-          columnDiv6 = $('<div class="col sm 6"></div>')
+          columnDiv6 = $('<div class="FORMITEMS"></div>')
           labelCaloriesFromFat = $('<label></label>');
           labelCaloriesFromFat.text('Calories from fat: ');
           inputCaloriesFromFat = $('<input name="cal_from_fat" class="caloriesFromFat" value='+ caloriesFromFat + '></input>')
@@ -147,7 +138,7 @@
 
 
 
-          columnDiv7 = $('<div class="col sm 6"></div>')
+          columnDiv7 = $('<div class="FORMITEMS"></div>')
           labelProtein = $('<label></label>');
           labelProtein.text('Protein (grams): ');
           inputProtein = $('<input name="protein" class="protein" value='+ protein +'></input>')
@@ -157,7 +148,7 @@
 
 
 
-          columnDiv8 = $('<div class="col sm 6"></div>')
+          columnDiv8 = $('<div class="FORMITEMS"></div>')
           labelFat = $('<label></label>');
           labelFat.text('Total Fat (grams): ');
           inputFat = $('<input name="fat" class="fat" value='+ fat  + '></input>')
@@ -167,7 +158,7 @@
 
 
 
-          columnDiv9 = $('<div class="col sm 6"></div>')
+          columnDiv9 = $('<div class="FORMITEMS"></div>')
           labelSaturatedFat = $('<label></label>');
           labelSaturatedFat.text('Saturated Fat (grams): ');
           inputSaturatedFat = $('<input name="sat_fat" class="saturatedFat" value='+ saturatedFat +'></input>')
@@ -177,7 +168,7 @@
 
 
 
-          columnDiv10 = $('<div class="col sm 6"></div>')
+          columnDiv10 = $('<div class="FORMITEMS"></div>')
           labelSodium = $('<label></label>');
           labelSodium.text('Sodium (milligrams): ');
           inputSodium = $('<input name="sodium" class="sodium" value='+ sodium + '></input>')
@@ -187,7 +178,7 @@
 
 
 
-          columnDiv11 = $('<div class="col sm 6"></div>')
+          columnDiv11 = $('<div class="FORMITEMS"></div>')
           labelSugar = $('<label></label>');
           labelSugar.text('Sugar (grams): ');
           inputSugar = $('<input name="sugar" class="sugar" value='+ sugar + '> </input>')
@@ -198,7 +189,7 @@
 
 
 
-          columnDiv12 = $('<div class="col sm 6"></div>')
+          columnDiv12 = $('<div class="FORMITEMS"></div>')
           labelCarbs = $('<label></label>');
           labelCarbs.text('Carbohydrates (grams): ');
           inputCarbs = $('<input name="carbs" class="carbs" value='+ carbs + '></input>')
@@ -207,7 +198,7 @@
           form.append(columnDiv12)
 
 
-          columnDiv13 = $('<div class="col sm 6"></div>')
+          columnDiv13 = $('<div class="FORMITEMS"></div>')
           labelMeal = $('<label></label>');
           labelMeal.text('Add to meal:' );
 
@@ -226,7 +217,7 @@
           columnDiv13.append(labelMeal)
           form.append(columnDiv13);
 
-          columnDiv4 = $('<div class="col sm 6"></div>')
+          columnDiv4 = $('<div class="FORMITEMS"></div>')
           labelServing = $('<label></label>');
           labelServing.text('Number of servings (Serving Size ' +servingSize + ' ' + servingUnit + ') :' );
 
@@ -257,9 +248,10 @@
           columnDiv4.append(labelServing)
           form.append(columnDiv4);
 
-          columnDiv4.append('<button id="clickme">Apply Servings</button>');
-          form.append('<br>')
-          columnDiv4.append('<button>Add to Log</button>')
+          columnDiv20 = $('<div class="FORMITEMS"></div>')
+          columnDiv20.append('<button id="clickme">Apply Servings</button>');
+          columnDiv20.append('<button>Add to Log</button>');
+          form.append(columnDiv20)
           rowDiv.append(form)
           containerDiv.append(rowDiv)
 

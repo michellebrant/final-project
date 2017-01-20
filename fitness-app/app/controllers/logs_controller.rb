@@ -22,7 +22,7 @@ class LogsController < ApplicationController
     Log.create(   food_name: params[:name],
                   user_id: session[:user_id],
                   brand: params[:brand],
-                  day: params[:date],
+                  day: params[:day],
                   calories: params[:calories],
                   cal_from_fat: params[:cal_from_fat],
                   protein: params[:protein],
