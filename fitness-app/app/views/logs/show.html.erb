@@ -3,6 +3,7 @@
 <head>
   <title></title>
   <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
    <div class="navbar-fixed">
@@ -18,61 +19,102 @@
   </div>
 <div class="continer">
   <div class="row">
-    <div class="col s2 l2">
-    </div>
-    <div class="col s8 l8">
+    <div class="log col s5 l5">
   <ul class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons"></i>Breakfast</div>
-      <div class="collapsible-body"><p><% @subLog =  @logs.where(day: @id2, meal:'Breakfast')  %>
+      <div class="collapsible-body"><% @subLog =  @logs.where(day: @id2, meal:'Breakfast', user_id: @session)  %>
       <% @subLog.each do |log| %>
-      <%= log['meal']  %>
-      <%= log['calories'] %><br>
-      <%= log['day'] %><br>
-      <% end %></p></div>
+    <span class="bold"> Item: <%= log['food_name'] %></span><br>
+      Calories: <%= log['calories'] %><br>
+       Calories from fat: <%= log['cal_from_fat'] %><br>
+        Protein: <%= log['protein'] %>grams<br>
+         Fat: <%= log['fat'] %> grams<br>
+          Saturated Fat: <%= log['sat_fat'] %>grams <br>
+           Sodium: <%= log['sodium'] %> milligrams <br>
+            Sugar: <%= log['sugar'] %> grams<br>
+             Carbohydrates: <%= log['carbs'] %> grams<br>
+              Number of Servings: <%= log['servings'] %><br>
+      <% end %>
+   </div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons"></i>Lunch</div>
       <div class="collapsible-body"><p>
-      <% @subLog =  @logs.where(day: @id2, meal:'Lunch')  %>
+      <% @subLog =  @logs.where(day: @id2, meal:'Lunch', user_id: @session)  %>
       <% @subLog.each do |log| %>
-      <%= log['meal']  %>
-      <%= log['calories'] %><br>
-      <%= log['day'] %><br>
-      <% end %></p></div>
+      <span class="bold"> Item: <%= log['food_name'] %></span><br>
+      Calories: <%= log['calories'] %><br>
+       Calories from fat: <%= log['cal_from_fat'] %><br>
+        Protein: <%= log['protein'] %> grams<br>
+         Fat: <%= log['fat'] %> grams<br>
+          Saturated Fat: <%= log['sat_fat'] %> grams<br>
+           Sodium: <%= log['sodium'] %> milligrams<br>
+            Sugar: <%= log['sugar'] %> grams<br>
+             Carbohydrates: <%= log['carbs'] %> grams<br>
+              Number of Servings: <%= log['servings'] %><br>
+               <br>
+      <% end %></div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons"></i>Dinner</div>
-      <div class="collapsible-body"><p>      <% @subLog =  @logs.where(day: @id2, meal:'Dinner')  %>
+      <div class="collapsible-body"><p>      <% @subLog =  @logs.where(day: @id2, meal:'Dinner', user_id: @session)  %>
       <% @subLog.each do |log| %>
-      <%= log['meal']  %>
-      <%= log['calories'] %><br>
-      <%= log['day'] %><br>
-      <% end %></p></div>
+      <span class="bold"> Item: <%= log['food_name'] %></span><br>
+       Calories: <%= log['calories'] %><br>
+        Calories from fat: <%= log['cal_from_fat'] %>
+        Protein: <%= log['protein'] %> grams<br>
+          Fat: <%= log['fat'] %> grams <br>
+           Saturated Fat: <%= log['sat_fat'] %> grams<br>
+            Sodium: <%= log['sodium'] %> milligrams<br>
+             Sugar: <%= log['sugar'] %> grams <br>
+              Carbohydrates: <%= log['carbs'] %> grams<br>
+               Number of Servings: <%= log['servings'] %><br>
+               <br>
+      <% end %></div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons"></i>Snacks</div>
       <div class="collapsible-body"><p>
-      <% @subLog =  @logs.where(day: @id2, meal:'Snack')  %>
+      <% @subLog =  @logs.where(day: @id2, meal:'Snack', user_id: @session)  %>
       <% @subLog.each do |log| %>
-      <%= log['meal']  %>
-      <%= log['calories'] %><br>
-      <%= log['day'] %><br>
-      <% end %></p></div>
+     <span class="bold">Item: <%= log['food_name'] %><br></span>
+      Calories: <%= log['calories'] %><br>
+       Calories from fat: <%= log['cal_from_fat'] %><br>
+        Protein: <%= log['protein'] %> grams<br>
+         Fat: <%= log['fat'] %> grams<br>
+          Saturated Fat: <%= log['sat_fat'] %> grams<br>
+           Sodium: <%= log['sodium'] %> milligrams<br>
+            Sugar: <%= log['sugar'] %> grams<br>
+             Carbohydrates: <%= log['carbs'] %> grams<br>
+              Number of Servings: <%= log['servings'] %><br>
+               <br>
+      <% end %></div>
     </li>
   </ul>
+  <div class="totals">
+      <h4>Daily Totals:</h4>
+      Calories: <%= @calCounterBreakfast %> <br>
+      Calories from Fat: <%= @calFromFatCounterBreakfast %><br>
+      Protein: <%= @proteinCounterBreakfast %> grams<br>
+      Fat: <%= @fatCounterBreakfast %> grams<br>
+      Saturated Fat: <%= @saturatedFatCounterBreakfast %> grams<br>
+      Sodium: <%= @sodiumCounterBreakfast %> milligrams<br>
+      Sugar: <%= @sugarCounterBreakfast %> grams<br>
+      Carbohydrates: <%=  @carbCounterBreakfast %> grams<br>
   </div>
-  <div class="col s2 l2">
-    </div>
-</div>
- </div>
+  </div>
+
+  <div class="col s7 l7">
     <%= month_calendar do |date| %>
       <%= date %>
     <% end %>
+        </div>
+</div>
+</div>
 
 </body>
 </html>
-
 
 
 

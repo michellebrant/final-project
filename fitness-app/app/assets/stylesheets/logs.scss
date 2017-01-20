@@ -1,5 +1,5 @@
 .simple-calendar {
-    margin: 30px;
+    margin: 15px;
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
@@ -89,4 +89,25 @@
 
 .nav-wrapper{
   background-color: #1565c0
+}
+.title{
+  font-weight: bold;
+  margin: 0px;
+}
+
+.log{
+  margin-top: 50px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.totals{
+  margin-left: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
 }

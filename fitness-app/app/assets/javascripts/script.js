@@ -1,5 +1,5 @@
  $( document ).ready(function() {
-
+console.log('#loaded')
     $("#searchit").click(function(){
       search = $('.search').val()
       getNutritionInfo(search)

@@ -6,12 +6,13 @@ class SessionsController < ApplicationController
   def show
 
     session[:user_id]
-    @user = User.where(id:1)
+    @user = User.where(id: session[:user_id])
     @email = @user[0][:email]
     @first = @user[0][:fname]
     @last = @user[0][:lname]
     @height = @user[0][:height]
     @weight = @user[0][:weight]
+
 
     @current_time = Time.now
     @current_time_real = @current_time.to_s
@@ -159,12 +160,12 @@ class SessionsController < ApplicationController
   # @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   # if @authorization
   #    render :text => 'success'
- if session[:user_id]
-    # Means our user is signed in. Add the authorization to the user
 
-  else
-    # Log him in or sign him up
+     emailCheck = User.find_by(email: @email)
+
+    if emailCheck == nil
     auth = Authorization.find_or_create(auth_hash)
+
 
     # Create the session
     session[:user_id] = auth.id
