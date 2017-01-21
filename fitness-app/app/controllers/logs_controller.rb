@@ -16,6 +16,7 @@ class LogsController < ApplicationController
     @id = params[:id]
     @id2= @id.gsub(' ', '')
     @session = session[:user_id]
+    @me = User.where(id: session[:user_id])
     @breakfastCalories = Log.where(day: @id2, user_id: @session)
     @calCounterBreakfast = 0
     @calFromFatCounterBreakfast = 0
@@ -35,27 +36,31 @@ class LogsController < ApplicationController
       @sugarCounterBreakfast+= item.sugar
       @carbCounterBreakfast+= item.carbs
     end
+
+    @calorieGoalMade = @me[0]['caloriegoal'] < @calCounterBreakfast
+    @caloriesLeft = @me[0]['caloriegoal'] - @calCounterBreakfast
+
+    @proteinGoalMade = @me[0]['proteingoal'] < @proteinCounterBreakfast
+    @proteinLeft = @me[0]['proteingoal'] - @proteinCounterBreakfast
+
+    @fatGoalMade = @me[0]['fatgoal'] < @fatCounterBreakfast
+    @fatLeft = @me[0]['fatgoal'] - @fatCounterBreakfast
+
+    @satFatGoalMade = @me[0]['satfatgoal'] < @saturatedFatCounterBreakfast
+    @satFatLeft = @me[0]['satfatgoal'] - @saturatedFatCounterBreakfast
+
+    @sodiumGoalMade = @me[0]['sodiumgoal'] < @sodiumCounterBreakfast
+    @sodiumLeft = @me[0]['sodiumgoal'] - @sodiumCounterBreakfast
+
+    @sugarGoalMade = @me[0]['sugargoal'] < @sugarCounterBreakfast
+    @sugarLeft = @me[0]['sugargoal'] - @sugarCounterBreakfast
+
+    @carbGoalMade = @me[0]['sugargoal'] < @carbCounterBreakfast
+    @carbLeft = @me[0]['sugargoal'] - @carbCounterBreakfast
+
+
   end
-  #     @lunchCalories = Log.where(meal: 'Lunch', day: @id2, user_id: @session)
-  #     @calCounterLunch = 0
-  #     @calFromFatCounterLunch = 0
-  #     @proteinCounterLunch = 0
-  #     @fatCounterLunch = 0
-  #     @saturatedFatCounterLunch = 0
-  #     @sodiumCounterLunch = 0
-  #     @sugarCounterLunch = 0
-  #     @carbCounterLunch = 0
-  #   @LunchCalories.each do |item|
-  #     @calCounterLunch+= item.calories
-  #     @calFromFatCounterLunch+= item.cal_from_fat
-  #     @proteinCounterLunch+= item.protein
-  #     @fatCounterLunch+= item.fat
-  #     @saturatedFatCounterLunch+= item.sat_fat
-  #     @sodiumCounterLunch+= item.sodium
-  #     @sugarCounterLunch+= item.sugar
-  #     @carbCounterLunch+= item.carbs
-  #   end
-  # end
+
   def create
 
     Log.create(   food_name: params[:name],

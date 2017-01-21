@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def edit
-     session[:user_id]
+    session[:user_id]
     @user = User.find(session[:user_id])
   end
 
@@ -19,11 +19,12 @@ class SessionsController < ApplicationController
   def show
 
 
-    session[:user_id]
+    @session = session[:user_id]
     @user = User.where(id: session[:user_id])
     @email = @user[0][:email]
     @first = @user[0][:fname]
     @last = @user[0][:lname]
+    @goal = @user[0][:goal]
     @height = @user[0][:height]
     @weight = @user[0][:weight]
 
@@ -34,65 +35,31 @@ class SessionsController < ApplicationController
 
     if (@currentTimeReal[5] + @currentTimeReal[6] === '01')
       @currentTimeReal2 = 'January' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '02')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '02')
       @currentTimeReal2 = 'February' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '03')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '03')
       @currentTimeReal2 = 'March' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '04')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '04')
       @currentTimeReal2 = 'April' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '05')
+    elsif(@currentTimeReal[5] + @currentTimeReal[6] === '05')
       @currentTimeReal2 = 'May' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '06')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '06')
       @currentTimeReal2 = 'June' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '07')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '07')
       @currentTimeReal2 = 'July' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '08')
+    elsif(@currentTimeReal[5] + @currentTimeReal[6] === '08')
       @currentTimeReal2 = 'August' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '09')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '09')
       @currentTimeReal2 = 'September' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '10')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '10')
       @currentTimeReal2 = 'October' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '11')
+    elsif (@currentTimeReal[5] + @currentTimeReal[6] === '11')
       @currentTimeReal2 = 'November' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '12')
+    else (@currentTimeReal[5] + @currentTimeReal[6] === '12')
       @currentTimeReal2 = 'December' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
     end
-
-
   end
+
   def create
     auth_hash = request.env['omniauth.auth']
 
@@ -112,74 +79,17 @@ class SessionsController < ApplicationController
     @current_time_real = @current_time.to_s
     @currentTimeReal = @current_time_real[0] + @current_time_real[1] + @current_time_real[2] + @current_time_real[3]+ @current_time_real[4] + @current_time_real[5] + @current_time_real[6] + @current_time_real[7]+@current_time_real[8] + @current_time_real[9]
 
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '01')
-      @currentTimeReal2 = 'January' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '02')
-      @currentTimeReal2 = 'February' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '03')
-      @currentTimeReal2 = 'March' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '04')
-      @currentTimeReal2 = 'April' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '05')
-      @currentTimeReal2 = 'May' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '06')
-      @currentTimeReal2 = 'June' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '07')
-      @currentTimeReal2 = 'July' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '08')
-      @currentTimeReal2 = 'August' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '09')
-      @currentTimeReal2 = 'September' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '10')
-      @currentTimeReal2 = 'October' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '11')
-      @currentTimeReal2 = 'November' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
-    if (@currentTimeReal[5] + @currentTimeReal[6] === '12')
-      @currentTimeReal2 = 'December' + ' ' + @currentTimeReal[8] + @currentTimeReal[9] + ', ' + @currentTimeReal[0] + @currentTimeReal[1] + @currentTimeReal[2] + @currentTimeReal[3]
-
-    end
-
   # @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   # if @authorization
   #    render :text => 'success'
 
-     emailCheck = User.find_by(email: @email)
-
-    if emailCheck == nil
+    emailCheck = User.find_by(email: @email)
+    if emailCheck
+       auth = Authorization.find_or_create(auth_hash)
+      session[:user_id] = auth.id
+      redirect_to '/home'
+    else emailCheck == nil
     auth = Authorization.find_or_create(auth_hash)
-
 
     # Create the session
     session[:user_id] = auth.id
@@ -194,6 +104,8 @@ class SessionsController < ApplicationController
                   log_id: Time.now)
       end
 
+end
+
 
   def destroy
     session[:user_id] = nil
@@ -201,4 +113,4 @@ class SessionsController < ApplicationController
   end
 
 end
-end
+

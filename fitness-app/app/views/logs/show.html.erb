@@ -93,15 +93,88 @@
     </li>
   </ul>
   <div class="totals">
+    <div class="row">
+      <div class="col sm6 l6">
       <h4>Daily Totals:</h4>
-      Calories: <%= @calCounterBreakfast %> <br>
-      Calories from Fat: <%= @calFromFatCounterBreakfast %><br>
-      Protein: <%= @proteinCounterBreakfast %> grams<br>
-      Fat: <%= @fatCounterBreakfast %> grams<br>
+      </div>
+      <div class="col sm6 l6">
+      </div>
+    </div>
+
+<div class="row">
+  <div class="col sm6 l6">
+     Calories: <%= @calCounterBreakfast %> <br>
+      <% if @calorieGoalMade === true%>
+         <div class="R">Left until goal reached: <%=@caloriesLeft %></div>
+          <% else %>
+         <div class="G">Left until goal reached: <%=@caloriesLeft  %></div>
+          <% end %>
+          <br>
+
+    </div>
+<div class="col sm6 l6">
+    Protein: <%= @proteinCounterBreakfast %> grams<br>
+      <% if @proteinGoalMade === true%>
+         <div class="R">Left until goal reached: <%=@proteinLeft %> grams</div>
+          <% else %>
+         <div class="G">Left until goal reached: <%=@proteinLeft  %> grams</div>
+          <% end %>
+          <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col sm6 l6">
+       Fat: <%= @fatCounterBreakfast %> grams<br>
+      <% if @fatGoalMade === true%>
+         <div class="R">Left until goal reached: <%=@fatLeft %> grams</div>
+          <% else %>
+         <div class="G">Left until goal reached: <%=@fatLeft  %> grams</div>
+          <% end %>
+          <br>
+      </div>
+      <div class="col sm6 l6">
       Saturated Fat: <%= @saturatedFatCounterBreakfast %> grams<br>
+        <% if @satFatGoalMade === true%>
+         <div class="R">Left until goal reached: <%=@satFatLeft %> grams</div>
+          <% else %>
+         <div class="G">Left until goal reached: <%=@satFatLeft  %> grams</div>
+          <% end %>
+          <br>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col sm6 l6">
       Sodium: <%= @sodiumCounterBreakfast %> milligrams<br>
-      Sugar: <%= @sugarCounterBreakfast %> grams<br>
-      Carbohydrates: <%=  @carbCounterBreakfast %> grams<br>
+        <% if @sodiumGoalMade === true%>
+         <div class="R">Left until goal reached: <%=@sodiumLeft %> milligrams</div>
+          <% else %>
+         <div class="G">Left until goal reached: <%=@sodiumLeft  %> milligrams</div>
+          <% end %>
+          <br>
+          </div>
+    <div class="col sm6 l6">
+            Sugar: <%= @sugarCounterBreakfast %> grams<br>
+            <% if @sugarGoalMade === true%>
+              <div class="R">Left until goal reached: <%=@sugarLeft %> grams</div>
+                <% else %>
+              <div class="G">Left until goal reached: <%=@sugarLeft  %> grams</div>
+                <% end %>
+              <br>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col sm6 l6">
+            Carbohydrates: <%=  @carbCounterBreakfast %> grams<br>
+            <% if @carbGoalMade === true%>
+              <div class="R">Left until goal reached: <%=@carbLeft %> grams</div>
+                <% else %>
+              <div class="G">Left until goal reached: <%=@carbLeft  %> grams</div>
+                <% end %>
+              <br>
+    </div>
+    <div class="col sm6 l6">
+    </div>
+    </div>
   </div>
   </div>
 
