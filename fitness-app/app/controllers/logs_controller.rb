@@ -18,6 +18,7 @@ class LogsController < ApplicationController
     @id2= @id.gsub(' ', '')
     @session = session[:user_id]
     @me = User.where(id: session[:user_id])
+    @mylogs = Log.where(user_id: session[:user_id], day: '2017-01-21')
     @breakfastCalories = Log.where(day: @id2, user_id: @session)
     @calCounterBreakfast = 0
     @calFromFatCounterBreakfast = 0
@@ -37,6 +38,7 @@ class LogsController < ApplicationController
       @sugarCounterBreakfast+= item.sugar
       @carbCounterBreakfast+= item.carbs
     end
+    @total = @calCounterBreakfast + @proteinCounterBreakfast + @fatCounterBreakfast + @saturatedFatCounterBreakfast + (@sodiumCounterBreakfast/1000) + @sugarCounterBreakfast + @carbCounterBreakfast
 
     @calorieGoalMade = @me[0]['caloriegoal'] < @calCounterBreakfast
     @caloriesLeft = @me[0]['caloriegoal'] - @calCounterBreakfast

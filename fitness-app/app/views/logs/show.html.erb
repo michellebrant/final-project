@@ -186,8 +186,48 @@
 </div>
 </div>
 
+<div class="stats">
+<h4>Daily Statistics</h4>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="stats col sm4 l4">
+    <h5>Calories by Meal</h5>
+    <%= pie_chart @mylogs.group(:meal).sum(:calories) %>
+    </div>
+    <div class="stats col sm4 l4">
+    <h5>Protein by Meal</h5>
+      <%= pie_chart @mylogs.group(:meal).sum(:protein) %>
+    </div>
+    <div class="stats col sm4 l4">
+    <h5>Fat by Meal</h5>
+    <%= pie_chart @mylogs.group(:meal).sum(:fat) %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="stats col sm4 l4">
+    <h5>Carbs by Meal</h5>
+      <%= pie_chart @mylogs.group(:meal).sum(:carbs) %>
+    </div>
+    <div class="stats col sm4 l4">
+    <h5>Sugar by Meal</h5>
+    <%= pie_chart @mylogs.group(:meal).sum(:sugar) %>
+    </div>
+      <div class="stats col sm4 l4">
+    <h5>Saturated Fat by Meal</h5>
+    <%= pie_chart @mylogs.group(:meal).sum(:sat_fat) %>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
+
+
 
 
 
