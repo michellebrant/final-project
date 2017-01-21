@@ -1,0 +1,2 @@
+class Weightbyday < ApplicationRecord
+end

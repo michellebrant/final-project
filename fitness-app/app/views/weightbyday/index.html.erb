@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+ <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">MyMealPlan</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/home">Home</a></li>
+            <li><a href="/logs">Food Log</a></li>
+             <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="log col s2 l2">
+    </div>
+    <div class="log col s8 l8">
+    <h4>Log Your Weight for the Day</h4>
+        <form action='/weightbyday' method='POST'>
+          <h2>Add Weight:</h2>
+          <label>Date</label><br>
+            <input name='date'><br>
+          <label>Weight (lbs)</label><br>
+            <input name='weight'><br>
+          <button>Submit</button>
+        </form>
+        <a href="/weight">Go Home</a>
+
+       <br />
+        <br />
+  <%= line_chart @weight.group(:day).sum(:weight) %>
+</div>
+    <div class="log col s2 l2">
+    </div>
+  </div>
+</div>
+</body>
+</html>

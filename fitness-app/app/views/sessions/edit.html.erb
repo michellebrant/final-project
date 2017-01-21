@@ -12,7 +12,8 @@
         <a href="#!" class="brand-logo">MyMealPlan</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/home">Home</a></li>
-          <li><a href="/logout">Logout</a></li>
+            <li><a href="/logs">Food Log</a></li>
+             <li><a href="/logout">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -41,6 +42,27 @@
 
         <%= f.label 'Goal: ' %>:
       <%= f.text_field :goal %><br />
+
+      <%= f.label 'Calorie Goal: ' %>:
+      <%= f.text_field :caloriegoal %><br />
+
+        <%= f.label 'Protein Goal: ' %>:
+      <%= f.text_field :proteingoal %><br />
+
+        <%= f.label 'Fat Goal: ' %>:
+      <%= f.text_field :fatgoal %><br />
+
+       <%= f.label 'Saturated Fat Goal: ' %>:
+      <%= f.text_field :satfatgoal %><br />
+
+       <%= f.label 'Sodium Goal: ' %>:
+      <%= f.text_field :sodiumgoal %><br />
+
+       <%= f.label 'Sugar Goal: ' %>:
+      <%= f.text_field :sugargoal %><br />
+
+             <%= f.label 'Carbohydrate Goal: ' %>:
+      <%= f.text_field :carbgoal %><br />
       <br />
       <%= f.submit %>
        <br />

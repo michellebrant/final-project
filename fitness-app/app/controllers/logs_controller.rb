@@ -19,6 +19,7 @@ class LogsController < ApplicationController
     @session = session[:user_id]
     @me = User.where(id: session[:user_id])
     @mylogs = Log.where(user_id: session[:user_id], day: '2017-01-21')
+    # FIX THAT - so its the day you are on, not just the 21st^
     @breakfastCalories = Log.where(day: @id2, user_id: @session)
     @calCounterBreakfast = 0
     @calFromFatCounterBreakfast = 0

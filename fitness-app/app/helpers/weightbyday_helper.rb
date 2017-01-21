@@ -1,0 +1,2 @@
+module WeightbydayHelper
+end
