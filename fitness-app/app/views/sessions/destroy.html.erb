@@ -2,12 +2,25 @@
 <html>
 <head>
   <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 <div class="homepage-hero-module">
     <div class="video-container">
-       <%= video_tag("Marfrum.mp4", class:"fillWidth", :autoplay => true, :loop => true)  %>
+       <%= video_tag("Mafrum.mp4", class:"fillWidth", :autoplay => true, :loop => true)  %>
     </div>
+<div class="container">
+  <div class="row">
+    <div class="col s2 l2">
+    </div>
+  <div class="col s8 l8 LOGOUT">
+    <h1>You've been logged out!</h1>
+    <a href="/login">Log back in here </a>
+  </div>
+    <div class="col s2 l8">
+    </div>
+  </div>
 </div>
 
 </body>

@@ -1,26 +1,60 @@
-<%= form_for @user, url: 'edit' do |f| %>
-  <%= f.label :fname %>:
-  <%= f.text_field :fname %><br />
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+ <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">MyMealPlan</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="log col s2 l2">
+    </div>
+    <div class="log col s8 l8">
+    <h4>Edit Your Account Information</h4>
+      <%= form_for @user, url: 'edit' do |f| %>
+      <%= f.label 'First Name: ' %>
+      <%= f.text_field :fname %><br />
 
-  <%= f.label :lname %>:
-  <%= f.text_field :lname %><br />
+      <%= f.label 'Last Name: ' %>:
+      <%= f.text_field :lname %><br />
 
-  <%= f.label :email %>:
-  <%= f.text_field :email %><br />
+      <%= f.label 'Email: ' %>:
+      <%= f.text_field :email %><br />
 
-  <%= f.label :height %>:
-  <%= f.text_field :height %><br />
+      <%= f.label 'Height: ' %>:
+      <%= f.text_field :height %><br />
 
-    <%= f.label :weight %>:
-  <%= f.text_field :weight %><br />
+        <%= f.label 'Weight: ' %>:
+      <%= f.text_field :weight %><br />
 
-    <%= f.label :goal %>:
-  <%= f.text_field :goal %><br />
-
-
-
-  <%= f.submit %>
+        <%= f.label 'Goal: ' %>:
+      <%= f.text_field :goal %><br />
+      <br />
+      <%= f.submit %>
+       <br />
+        <br />
 <% end %>
+</div>
+    <div class="log col s2 l2">
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
 
 
 

@@ -2,44 +2,36 @@
 <html>
 <head>
   <title></title>
-
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
+   <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">MyMealPlan</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div class="continer">
+  <div class="row">
+    <div class="log col s5 l5">
+    <h1>Choose a day to see your meal logs!</h1>
+</div>
+  <div class="col s7 l7">
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
+        </div>
+</div>
+</div>
 
 </body>
 </html>
-<h1>Breakfast</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Breakfast')  %>
-<% @subLog.each do |log| %>
-<%= log['meal']  %>
-<%= log['calories'] %><br>
-<%= log['day'] %><br>
-<% end %>
 
-<h1>Lunch</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Lunch')  %>
-<% @subLog.each do |log| %>
-<%= log['meal']  %>
-<%= log['calories'] %><br>
-<%= log['day'] %><br>
-<% end %>
 
-<h1>Dinner</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Dinner')  %>
-<% @subLog.each do |log| %>
-<%= log['meal']  %>
-<%= log['calories'] %><br>
-<%= log['day'] %><br>
-<% end %>
 
-<h1>Snacks</h1>
-<% @subLog =  @logs.where(day: @currentTimeReal, meal:'Snack')  %>
-<% @subLog.each do |log| %>
-<%= log['meal']  %>
-<%= log['calories'] %><br>
-<%= log['day'] %><br>
-<% end %>
-
-<%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
