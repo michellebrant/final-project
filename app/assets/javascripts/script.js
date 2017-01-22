@@ -13,7 +13,7 @@
       $('.food').remove();
     })
 
-     $(document).on('click','.day',function(){
+     $(document).on('click touchstart','.day',function(){
         location.href='/logs/'+this.innerHTML
     })
 
