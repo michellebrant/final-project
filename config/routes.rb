@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get '/login', :to => 'sessions#new', :as => :login
-  match '/auth/:provider/callback', :to => 'sessions#create', :via => [:get], :as => 'sessions_create'
+  match 'https://my-meal-planner.herokuapp.com/auth/:provider/callback', :to => 'sessions#create', :via => [:get], :as => 'sessions_create'
   match '/auth/failure', :to => 'sessions#failure', :via => [:get], :as => 'sessions_failure'
   get '/logout', :to => 'sessions#destroy'
   resources :logs
