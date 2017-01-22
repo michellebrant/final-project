@@ -1,15 +1,19 @@
  $( document ).ready(function() {
-console.log('#loaded')
-    $("#searchit").click(function(){
+    console.log('#loaded')
+
+    $(document).on('click','#searchit',function(){
       search = $('.search').val()
       getNutritionInfo(search)
+      console.log('heyyyo')
     })
 
-    $("#clearit").click(function(){
+    $('.collapsible').collapsible();
+
+    $(document).on('click','#clearit',function(){
       $('.food').remove();
     })
 
-     $(".day").click(function(){
+     $(document).on('click','.day',function(){
         location.href='/logs/'+this.innerHTML
     })
 
@@ -37,15 +41,18 @@ console.log('#loaded')
         resultItem1 = $('<li class="name"></li>');
         resultItem2 = $('<li class="name2"></li>');
         resultItem3 = $('<li class="specific"></li>');
+        resultItem4 = $('<li></li>');
         brand_name = data.hits[i].fields.brand_name;
         item_name = data.hits[i].fields.item_name;
         id = data.hits[i].fields.item_id
         resultItem1.text(item_name);
         resultItem2.text(brand_name);
         resultItem3.text(id);
+        resultItem4.text('Item ID: ')
         resultDiv.addClass(id)
         results.append(resultItem1);
         results.append(resultItem2);
+        results.append(resultItem4);
         results.append(resultItem3);
         resultDiv.append(results);
         rowDiv.append(resultDiv);
@@ -342,8 +349,7 @@ function scaleBannerVideoSize(element){
     });
 }
 
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
+
+
 
 

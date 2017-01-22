@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+ <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">MyMealPlan</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/home">Home</a></li>
+            <li><a href="/logs">Food Log</a></li>
+             <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="log col s2 l2">
+    </div>
+    <div class="log col s8 l8">
+      <h4>Edit This Log</h4>
+        <%= button_to 'Delete this log', @log, method: :delete %><br>
+        <%= form_for @log do |f| %>
+          <%= f.label :day %>:
+          <%= f.text_field :day %><br />
+
+          <%= f.label :food_name %>:
+          <%= f.text_field :food_name %><br />
+
+          <%= f.label :calories %>:
+          <%= f.text_field :calories %><br />
+
+            <%= f.label :cal_from_fat %>:
+          <%= f.text_field :cal_from_fat %><br />
+
+            <%= f.label :protein %>:
+          <%= f.text_field :protein %><br />
+
+              <%= f.label :fat %>:
+          <%= f.text_field :fat %><br />
+
+            <%= f.label :sat_fat %>:
+          <%= f.text_field :sat_fat %><br />
+
+           <%= f.label :sodium %>:
+          <%= f.text_field :sodium %><br />
+
+             <%= f.label :sugar %>:
+          <%= f.text_field :sugar %><br />
+
+             <%= f.label :carbs %>:
+          <%= f.text_field :carbs %><br />
+
+             <%= f.label :servings %>:
+          <%= f.text_field :servings %><br />
+
+             <%= f.label :meal %>:
+          <%= f.text_field :meal %><br />
+
+          <%= f.submit %>
+      <% end %>
+    <br />
+  <br />
+  </div>
+    <div class="log col s2 l2">
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
+

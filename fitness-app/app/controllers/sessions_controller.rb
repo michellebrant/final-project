@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def user_params
-  params.require(:user).permit(:fname, :lname, :weight, :height, :goal, :email, :caloriegoal, :proteingoal, :fatgoal, :satfatgoal, :sodiumgoal, :sugargoal, :carbgoal)
+    params.require(:user).permit(:fname, :lname, :weight, :height, :goal, :email, :caloriegoal, :proteingoal, :fatgoal, :satfatgoal, :sodiumgoal, :sugargoal, :carbgoal)
   end
   def show
 

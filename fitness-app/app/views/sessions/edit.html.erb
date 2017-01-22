@@ -23,7 +23,8 @@
     <div class="log col s2 l2">
     </div>
     <div class="log col s8 l8">
-    <h4>Edit Your Account Information</h4>
+    <h4>Set your goals below and update your account information here</h4>
+    <a href="http://www.fda.gov/Food/GuidanceRegulation/GuidanceDocumentsRegulatoryInformation/LabelingNutrition/ucm064928.htm"> To see your recommended daily intake, click here </a>
       <%= form_for @user, url: 'edit' do |f| %>
       <%= f.label 'First Name: ' %>
       <%= f.text_field :fname %><br />
@@ -46,22 +47,22 @@
       <%= f.label 'Calorie Goal: ' %>:
       <%= f.text_field :caloriegoal %><br />
 
-        <%= f.label 'Protein Goal: ' %>:
+        <%= f.label 'Protein Goal (g): ' %>:
       <%= f.text_field :proteingoal %><br />
 
-        <%= f.label 'Fat Goal: ' %>:
+        <%= f.label 'Fat Goal (g): ' %>:
       <%= f.text_field :fatgoal %><br />
 
-       <%= f.label 'Saturated Fat Goal: ' %>:
+       <%= f.label 'Saturated Fat Goal (g): ' %>:
       <%= f.text_field :satfatgoal %><br />
 
-       <%= f.label 'Sodium Goal: ' %>:
+       <%= f.label 'Sodium Goal (mg): ' %>:
       <%= f.text_field :sodiumgoal %><br />
 
-       <%= f.label 'Sugar Goal: ' %>:
+       <%= f.label 'Sugar Goal (g): ' %>:
       <%= f.text_field :sugargoal %><br />
 
-             <%= f.label 'Carbohydrate Goal: ' %>:
+             <%= f.label 'Carbohydrate Goal (g): ' %>:
       <%= f.text_field :carbgoal %><br />
       <br />
       <%= f.submit %>

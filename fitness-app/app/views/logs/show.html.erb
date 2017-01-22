@@ -13,6 +13,7 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="/home">Home</a></li>
             <li><a href="/logs">Food Log</a></li>
+               <li><a href="/weightbyday">Progress</a></li>
               <li><a href="/logout">Logout</a></li>
         </ul>
       </div>
@@ -26,16 +27,20 @@
       <div class="collapsible-header"><i class="material-icons"></i>Breakfast</div>
       <div class="collapsible-body"><% @subLog =  @logs.where(day: @id2, meal:'Breakfast', user_id: @session)  %>
       <% @subLog.each do |log| %>
+      <div class="logit">
     <span class="bold"> Item: <%= log['food_name'] %></span><br>
+      <a href="/logs/<%= log['id']%>/edit">Edit or remove this log item</a><br>
       Calories: <%= log['calories'] %><br>
        Calories from fat: <%= log['cal_from_fat'] %><br>
-        Protein: <%= log['protein'] %>grams<br>
+        Protein: <%= log['protein'] %> grams<br>
          Fat: <%= log['fat'] %> grams<br>
-          Saturated Fat: <%= log['sat_fat'] %>grams <br>
+          Saturated Fat: <%= log['sat_fat'] %> grams <br>
            Sodium: <%= log['sodium'] %> milligrams <br>
             Sugar: <%= log['sugar'] %> grams<br>
              Carbohydrates: <%= log['carbs'] %> grams<br>
               Number of Servings: <%= log['servings'] %><br>
+              <br>
+              </div>
       <% end %>
    </div>
     </li>
@@ -44,6 +49,7 @@
       <div class="collapsible-body"><p>
       <% @subLog =  @logs.where(day: @id2, meal:'Lunch', user_id: @session)  %>
       <% @subLog.each do |log| %>
+      <div class="logit">
       <span class="bold"> Item: <%= log['food_name'] %></span><br>
       Calories: <%= log['calories'] %><br>
        Calories from fat: <%= log['cal_from_fat'] %><br>
@@ -55,12 +61,14 @@
              Carbohydrates: <%= log['carbs'] %> grams<br>
               Number of Servings: <%= log['servings'] %><br>
                <br>
+            </div>
       <% end %></div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons"></i>Dinner</div>
       <div class="collapsible-body"><p>      <% @subLog =  @logs.where(day: @id2, meal:'Dinner', user_id: @session)  %>
       <% @subLog.each do |log| %>
+      <div class="logit">
       <span class="bold"> Item: <%= log['food_name'] %></span><br>
        Calories: <%= log['calories'] %><br>
         Calories from fat: <%= log['cal_from_fat'] %>
@@ -72,6 +80,7 @@
               Carbohydrates: <%= log['carbs'] %> grams<br>
                Number of Servings: <%= log['servings'] %><br>
                <br>
+               </div>
       <% end %></div>
     </li>
     <li>
@@ -79,6 +88,7 @@
       <div class="collapsible-body"><p>
       <% @subLog =  @logs.where(day: @id2, meal:'Snack', user_id: @session)  %>
       <% @subLog.each do |log| %>
+      <div class="logit">
      <span class="bold">Item: <%= log['food_name'] %><br></span>
       Calories: <%= log['calories'] %><br>
        Calories from fat: <%= log['cal_from_fat'] %><br>
@@ -90,6 +100,7 @@
              Carbohydrates: <%= log['carbs'] %> grams<br>
               Number of Servings: <%= log['servings'] %><br>
                <br>
+               </div>
       <% end %></div>
     </li>
   </ul>
