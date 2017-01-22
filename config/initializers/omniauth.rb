@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :underarmour, ENV["UAKEY"], ENV["UASECRETKEY"]
+  provider :underarmour, UAKEY, UASECRETKEY
 end
 
 
