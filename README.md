@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to My Meal Planner! A nutrition and meal tracker powered by Under Armour and Nutritionix. 
 
-Things you may want to cover:
+# Ruby on Rails
 
-* Ruby version
+This App uses:
+- Ruby 2.2.3 with Rails 5.0.0.1 
+- Javascript/JQuery
+- OmniAuth
+- OmniAuth-UnderArmour 
+- Chartkick
+- Simple Calendar 2.0
 
-* System dependencies
+# API and other Services
 
-* Configuration
+This app utilizes UnderArmour OAuth 2.0 login to create a simpler sign up experience for the user, and the Nutritionix API to power the nutrition data.
 
-* Database creation
+# Database
 
-* Database initialization
+Our database uses ActiveRecords' Postgresql's power to support our growing user base.
 
-* How to run the test suite
+# Models
 
-* Services (job queues, cache servers, search engines, etc.)
+The app uses four tables in the database: Authorizations, Logs, Users and Weightbydays.
 
-* Deployment instructions
+# Deployment Instructions
 
-* ...
+Heroku was used to deploy this app. You can find it here: https://my-meal-planner.herokuapp.com/login
