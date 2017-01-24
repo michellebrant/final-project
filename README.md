@@ -1,6 +1,6 @@
 # README
 
-Welcome to My Meal Planner! A nutrition and meal tracker powered by Under Armour and Nutritionix. 
+Welcome to My Meal Planner! A nutrition and meal tracker powered by Under Armour and Nutritionix. This app was built in Ruby on Rails with Javascript. 
 
 # Ruby on Rails
 
@@ -11,6 +11,19 @@ This App uses:
 - OmniAuth-UnderArmour 
 - Chartkick
 - Simple Calendar 2.0
+
+# Wireframes and Screenshots
+
+![Homepage Wireframe](https://github.com/michellebrant/my-meal-planner/blob/master/wireframe.png)
+
+![Homepage Screenshot](https://github.com/michellebrant/my-meal-planner/blob/master/MMP.png)
+
+# User Story
+
+The target users for this app are young adults looking for a way to track their meals and nutritional value intake.
+
+As a user, I can track my weight and meals/nutrient intake in order to track progress and create a plan of action to achieve that progress.
+
 
 # API and other Services
 
