@@ -102,7 +102,7 @@
 
           columnDiv1 = $('<div class="FORMITEMS"></div>')
           labelDate = $('<label></label>');
-          labelDate.text('Date: ');
+          labelDate.text('Date (YYYY-MM-DD): ');
           inputDate = $("<input name=\"day\" value=\""+ date +"\"></input>")
           labelDate.append(inputDate)
           columnDiv1.append(labelDate)
