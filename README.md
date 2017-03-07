@@ -1,3 +1,4 @@
+# My Meal Plan
 ![Homepage Screenshot](https://github.com/michellebrant/my-meal-planner/blob/master/MMP.png)
 
 Welcome to My Meal Planner! A nutrition and meal tracker powered by Under Armour and Nutritionix. This app was built in Ruby on Rails with Javascript. 
